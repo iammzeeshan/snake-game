@@ -1,6 +1,10 @@
 # Snake Game
 
-A classic browser-based Snake Game built with vanilla HTML, CSS, and JavaScript. Eat the food, grow the snake, and survive as long as possible without hitting the board boundary.
+A classic browser-based Snake Game built from scratch using vanilla HTML, CSS, and JavaScript — no libraries or frameworks. Eat the food, grow the snake, and survive as long as possible without hitting the board boundary.
+
+## Live Demo
+
+[Play it here](#) <!-- replace with your GitHub Pages / Vercel / Netlify link -->
 
 ## Features
 
@@ -9,44 +13,54 @@ A classic browser-based Snake Game built with vanilla HTML, CSS, and JavaScript.
 - Live score counter
 - Persistent high score using browser `localStorage`
 - Elapsed-time tracker
-- Random food placement
-- Responsive grid-based board
+- Random food placement on a responsive grid-based board
 
 ## Tech Stack
 
 - HTML5
 - CSS3
-- Vanilla JavaScript
+- Vanilla JavaScript (no dependencies)
 
 ## How to Run
 
-1. Download or clone this repository.
+1. Clone this repository:
+   ```
+   git clone https://github.com/iammzeeshan/snake-game.git
+   ```
 2. Keep `index.html`, `style.css`, and `script.js` in the same folder.
 3. Open `index.html` in any modern web browser.
 4. Click **START GAME** and use the arrow keys to play.
 
-No dependencies or installation are required.
+No installation or build step required.
 
 ## Controls
 
-| Key | Action |
-| --- | --- |
-| `↑` | Move up |
-| `↓` | Move down |
-| `←` | Move left |
+| Key | Action     |
+| --- | ---------- |
+| `↑` | Move up    |
+| `↓` | Move down  |
+| `←` | Move left  |
 | `→` | Move right |
 
 ## How It Works
 
-- The snake moves automatically every 400 ms.
-- Eating green food increases the score and the snake's length.
-- The current score resets when a new game starts.
-- The highest score is saved in your browser, so it remains available after refreshing the page.
-- The game ends when the snake reaches a board boundary.
+- The snake moves automatically every 400 ms via `setInterval`.
+- Eating food increases the score and grows the snake by one segment.
+- Food position is randomized within the grid bounds after each pickup.
+- The current score resets when a new game starts; the high score persists across sessions via `localStorage`.
+- The game currently ends when the snake reaches a board boundary.
+
+## Known Limitations / Roadmap
+
+- [ ] Self-collision detection (snake currently does not end the game when it hits itself)
+- [ ] Touch controls for mobile devices
+- [ ] Increasing speed as score grows
+- [ ] Custom game-over modal instead of a default alert
+- [ ] Sound effects and a pause button
 
 ## Project Structure
 
-```text
+```
 snake-game/
 ├── index.html     # Game layout
 ├── style.css      # Game design and board styling
@@ -54,18 +68,11 @@ snake-game/
 └── README.md
 ```
 
-## Future Improvements
-
-- Add collision detection when the snake hits itself
-- Add touch controls for mobile devices
-- Increase game speed as the score grows
-- Replace the browser alert with a game-over screen
-- Add sound effects and a pause button
-
 ## Author
 
-Created by Iammzeeshan.
+Built by iammzeeshan
 
 ---
 
 If you found this project useful, consider giving it a star on GitHub.
+
