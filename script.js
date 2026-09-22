@@ -240,6 +240,6 @@ addEventListener("keydown", (evt) => {
 
     }
 
-});git add script.js
+})
 
 
