@@ -1,10 +1,10 @@
 # Snake Game
 
-A classic browser-based Snake Game built from scratch using vanilla HTML, CSS, and JavaScript — no libraries or frameworks. Eat the food, grow the snake, and survive as long as possible without hitting the board boundary.
+A classic browser-based Snake Game built from scratch using vanilla HTML, CSS, and JavaScript — no libraries or frameworks. Eat the food, grow the snake, and survive as long as possible without hitting the board boundary or yourself.
 
 ## Live Demo
 
-[Play it here](#) <!-- replace with your GitHub Pages / Vercel / Netlify link -->
+[Play it here](https://iammzeeshan.github.io/snake-game/) <!-- enable via Settings → Pages → Source: main branch, if not already done -->
 
 ## Features
 
@@ -13,7 +13,8 @@ A classic browser-based Snake Game built from scratch using vanilla HTML, CSS, a
 - Live score counter
 - Persistent high score using browser `localStorage`
 - Elapsed-time tracker
-- Random food placement on a responsive grid-based board
+- Self-collision and boundary-collision detection
+- Random food placement that avoids spawning on the snake's body
 
 ## Tech Stack
 
@@ -46,13 +47,12 @@ No installation or build step required.
 
 - The snake moves automatically every 400 ms via `setInterval`.
 - Eating food increases the score and grows the snake by one segment.
-- Food position is randomized within the grid bounds after each pickup.
+- Food position is randomized within the grid bounds and never overlaps the snake's body.
 - The current score resets when a new game starts; the high score persists across sessions via `localStorage`.
-- The game currently ends when the snake reaches a board boundary.
+- The game ends when the snake reaches a board boundary or collides with itself.
 
-## Known Limitations / Roadmap
+## Roadmap
 
-- [ ] Self-collision detection (snake currently does not end the game when it hits itself)
 - [ ] Touch controls for mobile devices
 - [ ] Increasing speed as score grows
 - [ ] Custom game-over modal instead of a default alert
@@ -64,13 +64,13 @@ No installation or build step required.
 snake-game/
 ├── index.html     # Game layout
 ├── style.css      # Game design and board styling
-├── script.js      # Game logic, timer, scoring, and keyboard controls
+├── script.js      # Game logic, timer, scoring, collision, and keyboard controls
 └── README.md
 ```
 
 ## Author
 
-Built by **iammzeeshan**.
+Built by iammzeeshan
 
 ---
 
