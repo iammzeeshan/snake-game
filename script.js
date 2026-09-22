@@ -22,16 +22,24 @@ let timer = null;
 
 let seconds = 0;
 
-let food = {
-    x: Math.floor(Math.random() * rows),
-    y: Math.floor(Math.random() * cols)
-};
-
-const blocks = {};
-
 const snake = [
     { x: 1, y: 3 }
 ];
+
+function getRandomFood() {
+    let pos;
+    do {
+        pos = {
+            x: Math.floor(Math.random() * rows),
+            y: Math.floor(Math.random() * cols)
+        };
+    } while (snake.some(s => s.x === pos.x && s.y === pos.y));
+    return pos;
+}
+
+let food = getRandomFood();
+
+const blocks = {};
 
 let direction = "right";
 
@@ -78,10 +86,7 @@ function startGame() {
         block.classList.remove("food");
     });
 
-    food = {
-        x: Math.floor(Math.random() * rows),
-        y: Math.floor(Math.random() * cols)
-    };
+    food = getRandomFood();
 
     blocks[`${food.x}-${food.y}`]
         ?.classList.add("food");
@@ -135,11 +140,16 @@ function render() {
         };
     }
 
+    const hitSelf = snake.some(
+        segment => segment.x === head.x && segment.y === head.y
+    );
+
     if (
         head.x < 0 ||
         head.x >= rows ||
         head.y < 0 ||
-        head.y >= cols
+        head.y >= cols ||
+        hitSelf
     ) {
 
         alert("Game Over");
@@ -172,11 +182,6 @@ function render() {
         blocks[`${food.x}-${food.y}`]
             ?.classList.remove('food');
 
-        food = {
-            x: Math.floor(Math.random() * rows),
-            y: Math.floor(Math.random() * cols)
-        };
-
         count++;
 
         score.textContent = count;
@@ -192,6 +197,10 @@ function render() {
         blocks[`${segment.x}-${segment.y}`]
             ?.classList.add('fill');
     });
+
+    if (ateFood) {
+        food = getRandomFood();
+    }
 
     blocks[`${food.x}-${food.y}`]
         ?.classList.add('food');
@@ -231,5 +240,6 @@ addEventListener("keydown", (evt) => {
 
     }
 
-});
+});git add script.js
+
 
